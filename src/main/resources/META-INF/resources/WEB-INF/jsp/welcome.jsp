@@ -13,6 +13,8 @@
         DuckDoc
     </h2>
     <div>Your name is: ${name} <br>
-        Your password is: ${password}</div>
+        Your password is: ${password}
+    </div>
+    <a class="btn btn-primary" href="/todosHtml">Get your ToDos</a>
 </body>
 </html>

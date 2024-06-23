@@ -20,19 +20,27 @@
 	    			<th>User Name</th>
 	    			<th>Task</th>
 	    			<th>TargetTime</th>
-	    			<th>Done?</th>
     		</tr>
     		</thead>
     		
     		<tbody>
     			<c:forEach items="${todos}" var="todo">
-    				<tr>
-    					<td>${todo.id}</td>
-    					<td>${todo.username}</td>
-    					<td>${todo.description}</td>
-    					<td>${todo.targetTime}</td>
-    					<td>${todo.done}</td>
-    				</tr>
+    				<c:if test="${todo.done}">
+	    				<tr class="bg-success">
+	    					<td class="text-white">${todo.id}</td>
+	    					<td class="text-white">${todo.username}</td>
+	    					<td class="text-white">${todo.description}</td>
+	    					<td class="text-white">${todo.targetTime}</td>
+	    				</tr>
+    				</c:if>
+					<c:if test="${!todo.done}">
+						<tr>
+	    					<td>${todo.id}</td>
+	    					<td>${todo.username}</td>
+	    					<td>${todo.description}</td>
+	    					<td>${todo.targetTime}</td>
+	    				</tr>
+					</c:if>
     			</c:forEach>
     		</tbody>
     	</table>

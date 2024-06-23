@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>HEELO</title>
@@ -7,17 +8,17 @@
 <body>
     
     <div class="container-lg">
-	    <form class="d-flex flex-column align-items-center" method="post">
+	    <form:form modelAttribute="todo" class="d-flex flex-column align-items-center" method="post">
 	    	<label>
-	    		Name:<input name="username" class="form-control" type="text">
+	    		Task:
+	    		<form:input path="description" class="form-control" type="text"/>	  		  		
 	    	</label>
-	    	<label>
-	    		Task:<input name="des" class="form-control" type="text">
-	    	</label>
+	    	<form:input path="id" class="form-control" type="hidden"/>
+	    	<form:input path="done" class="form-control" type="hidden"/>
 	    	<button class="btn btn-success d-inline">
 	    		Add
 	    	</button>
-	    </form>
+	    </form:form>
     </div>
     <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>

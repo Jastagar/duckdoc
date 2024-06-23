@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.duckdoc.duckdoc.authenticate.Authenticate;
 
 //@SessionAttributes // These are used to save attribute across the controllers.
 @Controller
+@SessionAttributes("name")
 public class Auth {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
