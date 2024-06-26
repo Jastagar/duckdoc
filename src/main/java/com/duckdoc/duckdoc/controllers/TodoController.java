@@ -49,4 +49,10 @@ public class TodoController {
 		todoService.addTodo(todo.getDescription(),(String)model.get("name"),10);
 		return "redirect:todosHtml";
 	}
+	
+	@RequestMapping(value="/deleteTodo",method=RequestMethod.DELETE)
+	public String deleteTodo() {
+		
+		return "redirect:todosHtml";
+	}
 }

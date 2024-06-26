@@ -31,6 +31,9 @@
 	    					<td class="text-white">${todo.username}</td>
 	    					<td class="text-white">${todo.description}</td>
 	    					<td class="text-white">${todo.targetTime}</td>
+	    					<td class="text-white">
+	    						<button onClick="deleteTodo(${todo.id})" class="btn btn-danger"> Delete </button>
+	    					</td>
 	    				</tr>
     				</c:if>
 					<c:if test="${!todo.done}">
@@ -39,6 +42,9 @@
 	    					<td>${todo.username}</td>
 	    					<td>${todo.description}</td>
 	    					<td>${todo.targetTime}</td>
+	    					<td>
+	    						<button onClick="deleteTodo(${todo.id})" class="btn btn-danger"> Delete </button>
+	    					</td>
 	    				</tr>
 					</c:if>
     			</c:forEach>
@@ -51,5 +57,15 @@
     </div>
     <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script>
+    	function deleteTodo(id){
+			const formData = new FormData()
+			formData.append("id",id);
+			fetch("/deleteTodo",formData).then(e =>{
+				console.log("Log->",e);
+			})
+    	}
+    </script>
+    
 </body>
 </html>

@@ -29,6 +29,7 @@ public class Auth {
 	public String getLogin() {
 		return "login/page";
 	}
+	
 	@RequestMapping(value="login",method= RequestMethod.POST)
 	public String postLogin(@RequestParam String name, @RequestParam String password, ModelMap map) {
 		
