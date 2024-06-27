@@ -7,12 +7,7 @@
 <body>
     
     <div class="container-lg">
-	    <h1>
-	        Welcome to
-	    </h1>
-	    <h2>
-	        DuckDoc
-	    </h2>
+	    <%@ include file="comps/navbar.jspf" %>
     	<table class="table table-striped">
     		<thead>
 	    		<tr>
@@ -34,6 +29,9 @@
 	    					<td class="text-white">
 	    						<button onClick="deleteTodo(${todo.id})" class="btn btn-danger"> Delete </button>
 	    					</td>
+	    					<td class="text-white">
+	    						<a href="/updateTodo?id=${todo.id}" class="btn btn-warning"> Update </a>
+	    					</td>
 	    				</tr>
     				</c:if>
 					<c:if test="${!todo.done}">
@@ -43,7 +41,10 @@
 	    					<td>${todo.description}</td>
 	    					<td>${todo.targetTime}</td>
 	    					<td>
-	    						<button onClick="deleteTodo(${todo.id})" class="btn btn-danger"> Delete </button>
+	    						<a onClick="deleteTodo(${todo.id})" class="btn btn-danger"> Delete </a>
+	    					</td>
+	    					<td class="text-white">
+	    						<a href="/updateTodo?id=${todo.id}" class="btn btn-warning"> Update </a>
 	    					</td>
 	    				</tr>
 					</c:if>
@@ -61,7 +62,12 @@
     	function deleteTodo(id){
 			const formData = new FormData()
 			formData.append("id",id);
-			fetch("/deleteTodo",formData).then(e =>{
+			
+			fetch("/deleteTodo",{
+					method:"POST",
+					body:formData,
+					redirect:"follow"
+				}).then(e =>{
 				console.log("Log->",e);
 			})
     	}
